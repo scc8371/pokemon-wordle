@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import "./App.css";
 import Menu from "./components/Menu";
 import Game from "./components/Game";
@@ -36,7 +35,7 @@ function App() {
 
   async function fetchPkmnInfo() {
     const res = await fetch(
-      "https://games.samichamberlain.com/pokemon-wordle/api",
+      "https://games.samichamberlain.com/pokemon-wordle/api/pokemon-of-day",
     );
     const data = (await res.json()) as PokemonData;
 
