@@ -16,6 +16,7 @@
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/node-schedule": "^2.1.8",
+    "@types/pg": "^8.18.0",
     "arangojs": "^9.0.0",
     "axios": "^1.7.5",
     "cors": "^2.8.5",
@@ -25,7 +26,8 @@
     "https": "^1.0.0",
     "moment-timezone": "^0.5.45",
     "node-schedule": "^2.1.1",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "pg": "^8.20.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.4"
