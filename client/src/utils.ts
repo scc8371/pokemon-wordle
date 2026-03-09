@@ -3,15 +3,9 @@ export interface PokemonData {
   cry: string;
   class: string;
   sprite: string;
-  pokedexNum: number;
+  pokedexnum: number;
   types: string[];
-  pokedexEntry: string;
-}
-
-export enum State {
-  MENU,
-  GAME,
-  OVER,
+  pokedexentry: string;
 }
 
 export function normalizeString(str: string) {

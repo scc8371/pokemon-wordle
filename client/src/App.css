@@ -1,48 +1,109 @@
+@import "tailwindcss";
+
+/**
+Fonts
+**/
+@font-face {
+    font-family: "PokemonPixel";
+    src: url("/fonts/PokemonPixel.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    font-family: "PokemonPixel";
+    letter-spacing: 1px;
+}
+
+.pokewordle-title {
+    text-shadow:
+        -3px -3px 0 black,
+        3px -3px 0 black,
+        -3px 3px 0 black,
+        3px 3px 0 black; /* Outline color */
+}
+
+/* Body */
 body {
-    background-color: black !important;
-    color: white;
-
+    background-image: url("/backgrounds/site_bg.png");
+    backdrop-filter: blur(2px); /* Blur effect */
+    -webkit-backdrop-filter: blur(8px); /* Safari support */
 }
 
+/**
+Buttons
+**/
+.retro-button {
+    background: linear-gradient(
+        to bottom,
+        #e73737 0%,
+        #e73737 16.66%,
+
+        #d03a3a 16.66%,
+        #d03a3a 33.33%,
+
+        #b83c3c 33.33%,
+        #b83c3c 50%,
+
+        #a13e3e 50%,
+        #a13e3e 66.66%,
+
+        #943f3f 66.66%,
+        #943f3f 83.33%,
+
+        #873f3f 83.33%,
+        #873f3f 100%
+    );
+
+    /* Outer “border” */
+    border: 3px solid black;
+    box-sizing: border-box; /* ensures border doesn’t expand the element size */
+
+    color: black;
+}
+
+.retro-button:hover {
+    background: #f7a7af;
+    border: 3px solid red;
+}
+
+/* Pokedex panel */
 .panel {
-
-    min-width: 500px;
-    min-height: 500px;
-
-    max-width: 500px;
-
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    padding: 2rem;
-
-    text-align: center;
-
-    background-color: gray;
-
-    border-radius: 10px;
-
-
+    @apply flex flex-col items-center h-full w-full justify-center;
 }
 
-@media screen and (max-width: 600px) {
-    .panel {
-        min-width: 250px;
-        min-height: 300px;
+.top-screen,
+.top-screen-reveal {
+    @apply min-w-[500px] min-h-[300px] max-w-[500px] max-h-[300px] border-2 bg-slate-200;
+}
 
-        max-width: 300px;
-        
-        top: 50%;
-    }
+.top-screen {
+    background-image: url("/backgrounds/pokedex_bg_top.png");
+}
 
-    .panel h1{
-        font-size: 1.5rem !important;
-        margin: 0rem !important;
-    }
+.top-screen-reveal {
+    background-image: url("/backgrounds/pokedex_bg_top_reveal.png");
+}
+
+.bottom-screen {
+    @apply min-w-[500px] min-h-[300px] max-w-[500px] max-h-[300px] border-2;
+    background-image: url("/backgrounds/pokedex_bg_bottom.png");
+}
+
+.pokedex-audio {
+    @apply w-[400px] h-[280px];
+    background-image: url("/cry/cry_background.PNG");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.pokedex-audio-design {
+    @apply w-[400px] h-[280px];
+    background-image: url("/cry/Cry.PNG");
+    z-index: 100;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }

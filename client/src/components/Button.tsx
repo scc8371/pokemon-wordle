@@ -1,27 +1,32 @@
-import React, { MouseEventHandler } from 'react'
-import "../../styles/Button.css"
+//Author: Sami Chamberlain
+//Purpose: Helper function for buttons
 
-interface Props {
-    children?: string
-    link: string
-    onclick?: MouseEventHandler
-    displayType?: string
+import { MouseEventHandler } from "react";
+
+interface ButtonProps {
+  label?: string;
+  displayType?: string;
+  onClick?: MouseEventHandler;
 }
 
-const Button: React.FC<Props> = ({ children, link, onclick, displayType }) => {
+const Button = (props: ButtonProps) => {
+  return (
+    <div
+      className="retro-button border-2 border-black px-10 cursor-pointer text-[20pt] rounded-md "
+      onClick={(e) => {
+        props.onClick?.(e);
+      }}
+    >
+      <button
+        type="submit"
+        className={
+          "w-full text-center p-1 text-white font-pokemonPixel pointer-events-none"
+        }
+      >
+        {props.label}
+      </button>
+    </div>
+  );
+};
 
-    const hasLink = link && link.trim() !== '';
-    const buttonType = displayType ? displayType : "btn-dark"
-
-    return hasLink ? (
-        <>
-            <a href={link} id="btn-link"><button type="button" className={"btn " + buttonType} id="btn-panel">{children}</button></a>
-        </>
-    ) : (
-        <>
-            <a id="btn-link" type="submit"><button type="submit" className={"btn " + buttonType} id="btn-panel" onClick={onclick}>{children}</button></a>
-        </>
-    )
-}
-
-export default Button
+export default Button;
